@@ -1,0 +1,16 @@
+#T5(Text to text transfer transformer)
+
+from transformers import pipeline #This line imports the pipeline function from the transformers library.
+# pipeline function contains few models related to NLP tasks
+
+# Load text classification pipeline
+classifier = pipeline("text-classification", model="t5-base", tokenizer="t5-base")
+
+# Example text for classification
+example_text = "This is an amazing product!"
+
+# Perform text classification
+classification_result = classifier(example_text)
+
+print("Label:", classification_result[0]['label']) # label 1 is positive class whereas 0 is negative class
+print("Score:", classification_result[0]['score'])
